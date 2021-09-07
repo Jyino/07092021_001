@@ -6,8 +6,4 @@
     <RootNamespace>_07092021_001</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Modeles\" />
-  </ItemGroup>
-
 </Project>
