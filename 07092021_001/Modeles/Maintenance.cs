@@ -7,23 +7,25 @@ namespace _07092021_001.Modeles
     class Maintenance
     {
         #region attributs
-        private List<Station> collStation;
-        private List<Technicien> collTechnicien;
-        private List<Visite> collVisite;
-        public static List<Maintenance> collMaintenance = new List<Maintenance>();
+        private List<Station> _collStation;
+        private List<Technicien> _collTechnicien;
+        private List<Visite> _collVisite;
+        public static List<Maintenance> CollClass = new List<Maintenance>();
         #endregion
 
         #region getter/setter
-        public List<Station> CollStation { get => collStation; set => collStation = value; }
-        public List<Technicien> CollTechnicien { get => collTechnicien; set => collTechnicien = value; }
-        public List<Visite> CollVisite { get => collVisite; set => collVisite = value; }
+        public List<Station> CollStation { get => _collStation; set => _collStation = value; }
+        public List<Technicien> CollTechnicien { get => _collTechnicien; set => _collTechnicien = value; }
+        public List<Visite> CollVisite { get => _collVisite; set => _collVisite = value; }
         #endregion
 
         #region constructeur
-        public Maintenance()
+        public Maintenance(List<Technicien> lesTechniciens, List<Station> lesStations)
         {
-            collStation = Station.CollStation
-            Maintenance.collMaintenance.Add(this);
+            _collTechnicien = lesTechniciens;
+            _collStation = lesStations;
+            _collVisite = Visite.CollClass.ToList<Visite>();
+           CollClass.Add(this);
         }
         #endregion
 

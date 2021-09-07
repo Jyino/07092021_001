@@ -27,7 +27,7 @@ namespace _07092021_001.Modeles
         {
             dureeRevision = ladureeRevision;
             codeTypeBorne = lecodeTypeBorne;
-            TypeBorne.collClass.Add(this);
+            collClass.Add(this);
         }
         #endregion
 
