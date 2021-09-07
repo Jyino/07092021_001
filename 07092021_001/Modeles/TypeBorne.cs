@@ -39,6 +39,10 @@ namespace _07092021_001.Modeles
         }
         public int getNbJoursEntreRevisions()
         {
+            return this.nbJoursEntreRevisions;
+        }
+        public int getNbUnitesEntreRevisions()
+        {
             return this.nbUnitesEntreRevisions;
         }
         #endregion

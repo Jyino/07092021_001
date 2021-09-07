@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _07092021_001.Modeles
 {
-    class Technicien
+    public class Technicien
     {
         #region attributs
         

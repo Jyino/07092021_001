@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _07092021_001.Modeles
 {
-    class Maintenance
+    public class Maintenance
     {
         #region attributs
         private List<Station> _collStation;
@@ -20,11 +20,11 @@ namespace _07092021_001.Modeles
         #endregion
 
         #region constructeur
-        public Maintenance(List<Technicien> lesTechniciens, List<Station> lesStations)
+        public Maintenance(List<Technicien> lesTechniciens, List<Station> lesStations, List<Visite> lesVisites)
         {
             _collTechnicien = lesTechniciens;
             _collStation = lesStations;
-            _collVisite = Visite.CollClass.ToList<Visite>();
+            _collVisite = lesVisites;
            CollClass.Add(this);
         }
         #endregion
