@@ -46,12 +46,12 @@ namespace _07092021_001.Modeles
 
         public Visite getVisiteAFaire()
         {
-
+            Visite v = null;
             foreach (Visite visite in Visite.CollClass)
             {
 
             }
-            return Visite;
+            return v;
         }
         #endregion
     }

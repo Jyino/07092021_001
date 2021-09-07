@@ -41,7 +41,22 @@ namespace _07092021_001.Modeles
 
         public string getEtat()
         {
-
+            return this._etat;
+        }
+        public int getDureeTotal()
+        {
+            this.DureeTotale = 0;
+            foreach (Borne laborne in this._collBorne)
+            {
+                this.DureeTotale += laborne.getDureeRevision();
+            }
+            return this.DureeTotale;
+        }
+        public void changerEtat()
+        {
+            this._etat = (this._etat == "p") ? "A" : "R"; // condition 
+                                                            //? = alors
+                                                            //: = sinon
         }
         #endregion
     }

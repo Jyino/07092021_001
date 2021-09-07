@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace _07092021_001.Modeles
 {
@@ -9,7 +10,7 @@ namespace _07092021_001.Modeles
         #region attributs
         private int idBorne;
         private DateTime dateDerniereRevision;
-        private int indiceCompteurUnites;
+        private int _indiceCompteurUnites;
         private TypeBorne type;
         public static List<Borne> CollClass = new List<Borne>();
         #endregion
@@ -17,7 +18,7 @@ namespace _07092021_001.Modeles
         #region getter/setter
         public int IdBorne { get => idBorne; set => idBorne = value; }
         public DateTime DateDerniereRevision { get => dateDerniereRevision; set => dateDerniereRevision = value; }
-        public int IndiceCompteurUnites { get => indiceCompteurUnites; set => indiceCompteurUnites = value; }
+        public int IndiceCompteurUnites { get => _indiceCompteurUnites; set => _indiceCompteurUnites = value; }
         public TypeBorne Type { get => type; set => type = value; }
 
 
@@ -29,15 +30,18 @@ namespace _07092021_001.Modeles
             CollClass.Add(this);
             this.idBorne = lidBorne;
             dateDerniereRevision = ladateDerniereRevision;
-            indiceCompteurUnites = lindiceCompteurUnites;
+            _indiceCompteurUnites = lindiceCompteurUnites;
             this.type = letype;
         }
         #endregion
+
+
+        #region methodes
         public int get500()
         {
-            foreach(Borne uneBorne in Borne.CollClass)
+            foreach (Borne uneBorne in Borne.CollClass)
             {
-                if(uneBorne.IdBorne == 500)
+                if (uneBorne.IdBorne == 500)
                 {
                     return uneBorne.IdBorne;
                 }
@@ -51,17 +55,14 @@ namespace _07092021_001.Modeles
 
         public bool estAReviser()
         {
-            if (Convert.ToInt32(DateTime.Now - this.idBorne.DateDerniereRevision) > type.NbJoursEntreRevisions || this.idBorne.IndiceCompteurUnites > type.NbUnitesEntreRevisions)
+            if ((this._indiceCompteurUnites > Type.getNbUnitesEntreRevisions()) || (int)(DateTime.Now - this.DateDerniereRevision.TotalDays > this.Type.getNbJoursEntreRevisions))
             {
                 return true;
 
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
-        #region methodes
+       
         #endregion
     }
 }

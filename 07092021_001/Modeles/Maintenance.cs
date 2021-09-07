@@ -30,6 +30,34 @@ namespace _07092021_001.Modeles
         #endregion
 
         #region methodes
+        public void Reviser()
+        {
+            foreach (Visite visite in Visite.CollClass)
+            {
+                _collVisite.Add(visite);
+            }
+        }
+        public void AffecterVisites()
+        {
+            Technicien technicienRetenu = null;
+            
+            int tempsVisiteMoinsOccupe = int.MaxValue;
+
+            foreach(Visite uneVisite in this._collVisite)
+            {
+                foreach(Technicien unTechnicien in Technicien.CollClass)//je prends tt les techniciens
+                {
+                    if(unTechnicien.getTempsOccupe() < tempsVisiteMoinsOccupe)// pour chaque technicien je clacule le temps occupé
+                    {
+                        technicienRetenu = unTechnicien;
+                        tempsVisiteMoinsOccupe = unTechnicien.getTempsOccupe();
+                    }
+                }
+                technicienRetenu.affecterVisite(uneVisite);
+            }
+            
+        }
+
         #endregion
     }
 }

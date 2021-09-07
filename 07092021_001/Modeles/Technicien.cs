@@ -12,7 +12,7 @@ namespace _07092021_001.Modeles
         private string nom;
         private string prenom;
         private List<Visite> _collVisite;
-        public static List<Technicien> collClass = new List<Technicien>();
+        public static List<Technicien> CollClass = new List<Technicien>();
         #endregion
 
         #region getter/setter
@@ -33,6 +33,25 @@ namespace _07092021_001.Modeles
         #endregion
 
         #region methodes
+        public int getTempsOccupe()
+        {
+            int result = 0;
+            foreach(Visite laVisite in this._collVisite)
+            {
+                result += laVisite.getDureeTotal();
+            }
+            return result;
+        }
+        public void affecterVisite(Visite uneVisite)
+        {
+            uneVisite.changerEtat();
+            this._collVisite.Add(uneVisite);
+            
+        }
+        public List<Visite> getLesVisites()
+        {
+            return this._collVisite;
+        }
         #endregion
     }
 }
